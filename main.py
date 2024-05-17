@@ -1,9 +1,20 @@
 import service
 from fastapi import FastAPI, HTTPException
-
+from fastapi.middleware.cors import CORSMiddleware
 from models import User
 
 app = FastAPI()
+
+# 替换为发起请求的确切源
+allowed_origins = ["http://localhost:8080"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allowed_origins,  # 明确指定允许的源
+    allow_credentials=True,          # 允许携带凭据
+    allow_methods=["*"],            # 允许所有方法
+    allow_headers=["*"],            # 允许所有头
+)
 
 # 管理员相关接口
 @app.get("/admin/getAdminInfo")

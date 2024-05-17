@@ -10,3 +10,17 @@ Accept: application/json
 
 GET http://127.0.0.1:8000/items/getDishInfo
 Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/items/getDishInfo
+Accept: application/json
+
+###
+POST http://127.0.0.1:8000/users/register
+Content-Type: application/json
+
+    {
+    "username": "zyq",
+    "password": "123456"
+    }
